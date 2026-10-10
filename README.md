@@ -31,3 +31,42 @@
 ## 🚀 Быстрый старт
 
 Проект полностью адаптирован для запуска в среде **Google Colab**. Вы можете открыть файл ноутбука (`.ipynb`) непосредственно в облачной среде и выполнить все ячейки последовательно.
+
+## API на FastAPI
+
+API предоставляет доступ к моделям проекта для анализа текста, распознавания речи, классификации изображений и анализа кадров видео.
+
+### Установка и запуск
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+После запуска откройте `http://127.0.0.1:8000/docs` для интерактивной документации Swagger. Веса моделей загружаются из Hugging Face или Torchvision при первом запросе соответствующего типа; для первой загрузки нужен доступ к интернету.
+
+### Эндпоинты
+
+| Метод и путь | Вход | Результат |
+| --- | --- | --- |
+| `GET /health` | — | Состояние API |
+| `POST /text/sentiment` | JSON: `{"text": "I liked the result"}` | Метка и уверенность DistilBERT |
+| `POST /audio/transcribe` | Файл `file` (WAV, FLAC или OGG) | Распознанный текст Whisper |
+| `POST /image/classify` | Файл `file`, параметр `top_k` от 1 до 5 | Классы изображения ResNet-50 |
+| `POST /video/analyze` | Видео `file`, интервал выборки `interval_seconds` | Классы выбранных кадров ViT |
+
+Пример запроса для текста:
+
+```bash
+curl -X POST http://127.0.0.1:8000/text/sentiment \
+  -H "Content-Type: application/json" \
+  -d '{"text":"I liked the result"}'
+```
+
+Для загрузки файлов используйте форму эндпоинта в `/docs`. Максимальный размер загружаемого файла — 50 МБ; для видео анализируется не более 30 кадров.
+
+### Тесты и CI
+
+Тесты API запускаются командой `python -m pytest -q`. GitHub Actions автоматически запускает их при каждом push и pull request.
