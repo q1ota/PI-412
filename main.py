@@ -17,6 +17,8 @@ from PIL import Image, UnidentifiedImageError
 from transformers import pipeline
 from torchvision.models import ResNet50_Weights, resnet50
 
+from recsys.api import router as recsys_router
+
 
 MAX_UPLOAD_SIZE = 50 * 1024 * 1024
 MAX_VIDEO_FRAMES = 30
@@ -29,6 +31,7 @@ app = FastAPI(
     ),
     version="1.0.0",
 )
+app.include_router(recsys_router)
 
 
 class SentimentRequest(BaseModel):

@@ -153,6 +153,7 @@ activemq-data/
 .env
 .envrc
 .venv
+.venv-*
 env/
 venv/
 ENV/
@@ -218,3 +219,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# MovieLens is downloaded from GroupLens; do not redistribute the raw data.
+/data/

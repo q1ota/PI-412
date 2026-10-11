@@ -70,3 +70,33 @@ curl -X POST http://127.0.0.1:8000/text/sentiment \
 ### Тесты и CI
 
 Тесты API запускаются командой `python -m pytest -q`. GitHub Actions автоматически запускает их при каждом push и pull request.
+
+## Блок заданий 1 — часть 3 RecSys
+
+Вклад Олега, группа 11-412: рекомендации фильмов на MovieLens 100K.
+Два классических подхода (content-based и item-based collaborative filtering)
+и две эвристики (популярность и популярность внутри жанра), реальный эксперимент,
+локальное HTTP-развёртывание и разбор ограничений, мониторинга и бизнес-метрик.
+Эта часть отдельна от классификации изображений в пункте 3 выше.
+
+```bash
+python3.11 -m venv .venv-recsys
+source .venv-recsys/bin/activate
+python -m pip install -r requirements-recsys.txt
+python -m recsys download
+python -m recsys evaluate
+python -m recsys demo --user-id 1 --method item_cf --k 5
+python -m uvicorn recsys.api:app --host 127.0.0.1 --port 8001
+```
+
+HTTP: `GET /recsys/recommend?user_id=1&method=item_cf&k=5`.
+Роутер подключён и к существующему `main:app`.
+
+Подробности: [запуск и данные](docs/recsys.md),
+[отчёт по частям I–III](docs/recsys-report.md),
+[демонстрация и защита](docs/recsys-defense.md),
+[исходный текст условия](docs/recsys-assignment.md).
+Результаты: [metrics.csv](artifacts/recsys/metrics.csv),
+[полный эксперимент](artifacts/recsys/results.json).
+Для полного проекта на Intel macOS предусмотрен `constraints-macos-intel.txt`;
+способ установки приведён в инструкции RecSys.

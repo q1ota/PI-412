@@ -1,0 +1,68 @@
+{
+  "service": "main:app",
+  "health_status": 200,
+  "old_paths_preserved": true,
+  "recommendation_status": 200,
+  "response": {
+    "user_id": 1,
+    "method": "item_cf",
+    "effective_method": "item_cf",
+    "k": 5,
+    "recommendations": [
+      {
+        "movie_id": 318,
+        "title": "Schindler's List (1993)",
+        "genres": [
+          "Drama",
+          "War"
+        ],
+        "score": 0.09259751296827767,
+        "reason": "Совместные положительные оценки с «Shawshank Redemption, The (1994)»."
+      },
+      {
+        "movie_id": 423,
+        "title": "E.T. the Extra-Terrestrial (1982)",
+        "genres": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "score": 0.08717591036877212,
+        "reason": "Совместные положительные оценки с «Empire Strikes Back, The (1980)»."
+      },
+      {
+        "movie_id": 357,
+        "title": "One Flew Over the Cuckoo's Nest (1975)",
+        "genres": [
+          "Drama"
+        ],
+        "score": 0.08368270174041191,
+        "reason": "Совместные положительные оценки с «Raiders of the Lost Ark (1981)»."
+      },
+      {
+        "movie_id": 651,
+        "title": "Glory (1989)",
+        "genres": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "score": 0.07978879928983137,
+        "reason": "Совместные положительные оценки с «Shawshank Redemption, The (1994)»."
+      },
+      {
+        "movie_id": 655,
+        "title": "Stand by Me (1986)",
+        "genres": [
+          "Adventure",
+          "Comedy",
+          "Drama"
+        ],
+        "score": 0.07904407795622412,
+        "reason": "Совместные положительные оценки с «Back to the Future (1985)»."
+      }
+    ],
+    "model_version": "movielens-100k-temporal-v1"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "scenario": "50 synthetic five-star profiles, target + 20 most-rated train anchors",
+  "fake_users": 50,
+  "added_ratings": 1050,
+  "train_rating_increase_fraction": 0.013125164064550807,
+  "target_movie_id": 18,
+  "target_title": "White Balloon, The (1995)",
+  "target_train_ratings_before": 8,
+  "anchor_movie_ids": [
+    50,
+    181,
+    100,
+    294,
+    258,
+    288,
+    1,
+    286,
+    121,
+    174,
+    127,
+    56,
+    7,
+    237,
+    117,
+    300,
+    98,
+    222,
+    172,
+    405
+  ],
+  "evaluated_existing_users": 105,
+  "comparisons": {
+    "popular": {
+      "median_rank_before": 888.0,
+      "median_rank_after": 7.0,
+      "target_in_top10_before": 0,
+      "target_in_top10_after": 77
+    },
+    "item_cf": {
+      "median_rank_before": 822.0,
+      "median_rank_after": 98.0,
+      "target_in_top10_before": 0,
+      "target_in_top10_after": 3
+    }
+  }
+}

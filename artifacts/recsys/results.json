@@ -1,0 +1,412 @@
+{
+  "dataset": {
+    "name": "MovieLens 100K",
+    "url": "https://files.grouplens.org/datasets/movielens/ml-100k.zip",
+    "archive_sha256": "50d2a982c66986937beb9ffb3aa76efe955bf3d5c6b761f4e3a7cd717c6a3229",
+    "ratings": 100000,
+    "users": 943,
+    "movies": 1682
+  },
+  "protocol": {
+    "split": "global chronological 80/20, equal timestamps kept together",
+    "cutoff_unix": 889237269,
+    "cutoff_utc": "1998-03-07T02:21:09+00:00",
+    "train_ratings": 79999,
+    "test_ratings": 20001,
+    "train_users": 751,
+    "candidate_movies": 1616,
+    "evaluated_warm_users": 95,
+    "cold_test_users": 192,
+    "cold_item_positive_test_ratings": 95,
+    "cold_users_with_evaluable_positive": 192,
+    "positive_rating": 4,
+    "k": 10,
+    "parameters": {
+      "neighbors": 40,
+      "shrinkage": 10.0,
+      "prior_count": 50.0,
+      "positive_rating": 4
+    },
+    "bootstrap_resamples": 2000,
+    "bootstrap_seed": 42
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "platform": "macOS-26.3.1-x86_64-i386-64bit",
+    "fit_seconds": 0.5661935490206815,
+    "timing_scope": "in-process recommend including response construction; no HTTP/load"
+  },
+  "metrics": {
+    "content": {
+      "precision@10": 0.051578947368421044,
+      "recall@10": 0.05603261278164742,
+      "ndcg@10": 0.07174671795255104,
+      "hit_rate@10": 0.29473684210526313,
+      "catalog_coverage": 0.12933168316831684,
+      "genre_diversity": 0.13051749373806013,
+      "full_list_rate": 1.0,
+      "latency_p50_ms": 0.34143502125516534,
+      "latency_p95_ms": 0.4883409128524362
+    },
+    "item_cf": {
+      "precision@10": 0.12000000000000002,
+      "recall@10": 0.07731125573890789,
+      "ndcg@10": 0.13927545045265732,
+      "hit_rate@10": 0.4631578947368421,
+      "catalog_coverage": 0.13242574257425743,
+      "genre_diversity": 0.7629013385077797,
+      "full_list_rate": 1.0,
+      "latency_p50_ms": 1.639521011384204,
+      "latency_p95_ms": 2.167423701030202
+    },
+    "popular": {
+      "precision@10": 0.09894736842105263,
+      "recall@10": 0.08249200610294549,
+      "ndcg@10": 0.1361686391851623,
+      "hit_rate@10": 0.45263157894736844,
+      "catalog_coverage": 0.03094059405940594,
+      "genre_diversity": 0.7868501721288474,
+      "full_list_rate": 1.0,
+      "latency_p50_ms": 0.2850519958883524,
+      "latency_p95_ms": 0.4219246038701385
+    },
+    "genre_popular": {
+      "precision@10": 0.10526315789473684,
+      "recall@10": 0.10440478568170232,
+      "ndcg@10": 0.1532643484104451,
+      "hit_rate@10": 0.4421052631578947,
+      "catalog_coverage": 0.06745049504950495,
+      "genre_diversity": 0.539571255808219,
+      "full_list_rate": 1.0,
+      "latency_p50_ms": 0.20983401918783784,
+      "latency_p95_ms": 0.33706658286973834
+    }
+  },
+  "paired_ndcg_vs_popular": {
+    "content": {
+      "mean_ndcg_difference": -0.06442192123261128,
+      "bootstrap_95_percent": [
+        -0.11070739318103828,
+        -0.01854422059648273
+      ]
+    },
+    "item_cf": {
+      "mean_ndcg_difference": 0.0031068112674950154,
+      "bootstrap_95_percent": [
+        -0.03974043062797989,
+        0.04349751710894828
+      ]
+    },
+    "genre_popular": {
+      "mean_ndcg_difference": 0.01709570922528277,
+      "bootstrap_95_percent": [
+        -0.0015737132074264632,
+        0.03627825597783078
+      ]
+    }
+  },
+  "examples": {
+    "content": {
+      "user_id": 1,
+      "method": "content",
+      "effective_method": "content",
+      "k": 5,
+      "recommendations": [
+        {
+          "movie_id": 523,
+          "title": "Cool Hand Luke (1967)",
+          "genres": [
+            "Comedy",
+            "Drama"
+          ],
+          "score": 0.7572048087725971,
+          "reason": "Жанры похожи на жанры фильмов, которым вы поставили 4–5."
+        },
+        {
+          "movie_id": 316,
+          "title": "As Good As It Gets (1997)",
+          "genres": [
+            "Comedy",
+            "Drama"
+          ],
+          "score": 0.7572048087725971,
+          "reason": "Жанры похожи на жанры фильмов, которым вы поставили 4–5."
+        },
+        {
+          "movie_id": 652,
+          "title": "Rosencrantz and Guildenstern Are Dead (1990)",
+          "genres": [
+            "Comedy",
+            "Drama"
+          ],
+          "score": 0.7572048087725971,
+          "reason": "Жанры похожи на жанры фильмов, которым вы поставили 4–5."
+        },
+        {
+          "movie_id": 481,
+          "title": "Apartment, The (1960)",
+          "genres": [
+            "Comedy",
+            "Drama"
+          ],
+          "score": 0.7572048087725971,
+          "reason": "Жанры похожи на жанры фильмов, которым вы поставили 4–5."
+        },
+        {
+          "movie_id": 856,
+          "title": "Night on Earth (1991)",
+          "genres": [
+            "Comedy",
+            "Drama"
+          ],
+          "score": 0.7572048087725971,
+          "reason": "Жанры похожи на жанры фильмов, которым вы поставили 4–5."
+        }
+      ]
+    },
+    "item_cf": {
+      "user_id": 1,
+      "method": "item_cf",
+      "effective_method": "item_cf",
+      "k": 5,
+      "recommendations": [
+        {
+          "movie_id": 318,
+          "title": "Schindler's List (1993)",
+          "genres": [
+            "Drama",
+            "War"
+          ],
+          "score": 0.09259751296827767,
+          "reason": "Совместные положительные оценки с «Shawshank Redemption, The (1994)»."
+        },
+        {
+          "movie_id": 423,
+          "title": "E.T. the Extra-Terrestrial (1982)",
+          "genres": [
+            "Children's",
+            "Drama",
+            "Fantasy",
+            "Sci-Fi"
+          ],
+          "score": 0.08717591036877212,
+          "reason": "Совместные положительные оценки с «Empire Strikes Back, The (1980)»."
+        },
+        {
+          "movie_id": 357,
+          "title": "One Flew Over the Cuckoo's Nest (1975)",
+          "genres": [
+            "Drama"
+          ],
+          "score": 0.08368270174041192,
+          "reason": "Совместные положительные оценки с «Raiders of the Lost Ark (1981)»."
+        },
+        {
+          "movie_id": 651,
+          "title": "Glory (1989)",
+          "genres": [
+            "Action",
+            "Drama",
+            "War"
+          ],
+          "score": 0.07978879928983137,
+          "reason": "Совместные положительные оценки с «Shawshank Redemption, The (1994)»."
+        },
+        {
+          "movie_id": 655,
+          "title": "Stand by Me (1986)",
+          "genres": [
+            "Adventure",
+            "Comedy",
+            "Drama"
+          ],
+          "score": 0.07904407795622412,
+          "reason": "Совместные положительные оценки с «Back to the Future (1985)»."
+        }
+      ]
+    },
+    "popular": {
+      "user_id": 1,
+      "method": "popular",
+      "effective_method": "popular",
+      "k": 5,
+      "recommendations": [
+        {
+          "movie_id": 318,
+          "title": "Schindler's List (1993)",
+          "genres": [
+            "Drama",
+            "War"
+          ],
+          "score": 4.275814068305224,
+          "reason": "Высокий средний рейтинг со сглаживанием малых выборок."
+        },
+        {
+          "movie_id": 483,
+          "title": "Casablanca (1942)",
+          "genres": [
+            "Drama",
+            "Romance",
+            "War"
+          ],
+          "score": 4.27492721836989,
+          "reason": "Высокий средний рейтинг со сглаживанием малых выборок."
+        },
+        {
+          "movie_id": 313,
+          "title": "Titanic (1997)",
+          "genres": [
+            "Action",
+            "Drama",
+            "Romance"
+          ],
+          "score": 4.218656667471292,
+          "reason": "Высокий средний рейтинг со сглаживанием малых выборок."
+        },
+        {
+          "movie_id": 408,
+          "title": "Close Shave, A (1995)",
+          "genres": [
+            "Animation",
+            "Comedy",
+            "Thriller"
+          ],
+          "score": 4.186686274550654,
+          "reason": "Высокий средний рейтинг со сглаживанием малых выборок."
+        },
+        {
+          "movie_id": 603,
+          "title": "Rear Window (1954)",
+          "genres": [
+            "Mystery",
+            "Thriller"
+          ],
+          "score": 4.160404017245337,
+          "reason": "Высокий средний рейтинг со сглаживанием малых выборок."
+        }
+      ]
+    },
+    "genre_popular": {
+      "user_id": 1,
+      "method": "genre_popular",
+      "effective_method": "genre_popular",
+      "k": 5,
+      "recommendations": [
+        {
+          "movie_id": 318,
+          "title": "Schindler's List (1993)",
+          "genres": [
+            "Drama",
+            "War"
+          ],
+          "score": 4.275814068305224,
+          "reason": "Высокий сглаженный рейтинг в жанре Drama."
+        },
+        {
+          "movie_id": 483,
+          "title": "Casablanca (1942)",
+          "genres": [
+            "Drama",
+            "Romance",
+            "War"
+          ],
+          "score": 4.27492721836989,
+          "reason": "Высокий сглаженный рейтинг в жанре Drama."
+        },
+        {
+          "movie_id": 313,
+          "title": "Titanic (1997)",
+          "genres": [
+            "Action",
+            "Drama",
+            "Romance"
+          ],
+          "score": 4.218656667471292,
+          "reason": "Высокий сглаженный рейтинг в жанре Drama."
+        },
+        {
+          "movie_id": 357,
+          "title": "One Flew Over the Cuckoo's Nest (1975)",
+          "genres": [
+            "Drama"
+          ],
+          "score": 4.1144935767635795,
+          "reason": "Высокий сглаженный рейтинг в жанре Drama."
+        },
+        {
+          "movie_id": 427,
+          "title": "To Kill a Mockingbird (1962)",
+          "genres": [
+            "Drama"
+          ],
+          "score": 4.084676338723292,
+          "reason": "Высокий сглаженный рейтинг в жанре Drama."
+        }
+      ]
+    }
+  },
+  "cold_start_example": {
+    "user_id": 9999,
+    "method": "item_cf",
+    "effective_method": "popular",
+    "k": 5,
+    "recommendations": [
+      {
+        "movie_id": 64,
+        "title": "Shawshank Redemption, The (1994)",
+        "genres": [
+          "Drama"
+        ],
+        "score": 4.3168373225354975,
+        "reason": "Нет положительной истории: используется общий рейтинг популярности."
+      },
+      {
+        "movie_id": 318,
+        "title": "Schindler's List (1993)",
+        "genres": [
+          "Drama",
+          "War"
+        ],
+        "score": 4.275814068305224,
+        "reason": "Нет положительной истории: используется общий рейтинг популярности."
+      },
+      {
+        "movie_id": 50,
+        "title": "Star Wars (1977)",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Sci-Fi",
+          "War"
+        ],
+        "score": 4.275110561252953,
+        "reason": "Нет положительной истории: используется общий рейтинг популярности."
+      },
+      {
+        "movie_id": 483,
+        "title": "Casablanca (1942)",
+        "genres": [
+          "Drama",
+          "Romance",
+          "War"
+        ],
+        "score": 4.27492721836989,
+        "reason": "Нет положительной истории: используется общий рейтинг популярности."
+      },
+      {
+        "movie_id": 313,
+        "title": "Titanic (1997)",
+        "genres": [
+          "Action",
+          "Drama",
+          "Romance"
+        ],
+        "score": 4.218656667471292,
+        "reason": "Нет положительной истории: используется общий рейтинг популярности."
+      }
+    ]
+  },
+  "per_user_file": "per_user.csv"
+}

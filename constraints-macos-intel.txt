@@ -1,0 +1,10 @@
+# Compatibility for Python 3.11/3.12 on Intel macOS (PyTorch wheels stop at 2.2.2).
+# Apply with: pip install -r requirements.txt -c constraints-macos-intel.txt
+numpy==1.26.4
+torch==2.2.2
+torchvision==0.17.2
+transformers==4.44.2
+librosa==0.10.2.post1
+numba==0.60.0
+llvmlite==0.43.0
+opencv-python-headless==4.10.0.84
